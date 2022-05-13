@@ -1,0 +1,13 @@
+Flask
+pandas
+sklearn
+python-dotenv
+numpy
+Flask-Bootstrap
+Flask-WTF  
+pymongo
+dnspython
+Flask-Login
+Flask-Mail
+Bcrypt-Flask
+email-validator
