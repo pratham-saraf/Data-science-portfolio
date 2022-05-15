@@ -3,7 +3,7 @@ import os
 import uuid
 import re
 import datetime
-from flask import Flask, render_template, request, redirect, url_for,flash,session,Response
+from flask import Flask, jsonify, render_template, request, redirect, url_for,flash,session,Response
 from model.search import search , search_id
 from model.recommender import recommender
 from flask_bootstrap import Bootstrap
@@ -152,11 +152,18 @@ class RegisterForm(FlaskForm):
 
 @app.route("/")
 def index():
+
+    if current_user.is_authenticated:
+        return redirect(url_for('dashboard'))
+
     return render_template("index.html")
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
     form = LoginForm()
+
+    if current_user.is_authenticated:
+        return redirect(url_for('dashboard'))
 
     if form.validate_on_submit() and request.method == 'POST':
         
@@ -177,6 +184,9 @@ def login():
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     form = RegisterForm()
+
+    if current_user.is_authenticated:
+        return redirect(url_for('dashboard'))
 
     if form.validate_on_submit() and request.method == 'POST':
         
@@ -291,6 +301,8 @@ def find():
 def search_route():
     term = request.form['q']
     result = search(term)
+    user_book_data = book_db.find_one({"_id": current_user._id})
+    liked_books = jsonify(user_book_data["liked_books"])
     return result , 200
 
 @app.route("/recommendation_generator")
