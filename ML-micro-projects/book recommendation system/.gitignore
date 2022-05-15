@@ -1,2 +1,5 @@
 /model/data/*
-.env
+
+/env
+/__pycache__
+/model/__pycache__
