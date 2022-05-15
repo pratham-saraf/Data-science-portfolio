@@ -13,7 +13,7 @@ import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-df = pd.read_json("model/data/search_final.json")
+df = pd.read_json("model/data/books_with_author.json")
 
 vectorizer = TfidfVectorizer()
 tfidf = vectorizer.fit_transform(df["search"])

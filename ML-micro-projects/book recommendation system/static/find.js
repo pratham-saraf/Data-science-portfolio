@@ -62,62 +62,64 @@ $(function() {
 const loadsuggestions = (data) => {
   const results = document.getElementById("search-results");
   const suggestions = []
-  const ul = document.createElement("ul");
 
   data.forEach((item) => {
     const obj = makecard();
     const card = beautifycard(obj, item);
-    suggestions.push(card);
+    results.appendChild(card);
   });
 
   suggestions.forEach((item) => {
     // results.appendChild(item);
-    const li = document.createElement("li");
-    li.appendChild(item);
-    ul.appendChild(li);
+    
   });
 
-  results.appendChild(ul);
 };
 
 const makecard = () => {
-  const container = document.createElement("article");
+  const card = document.createElement("div");
+  const a = document.createElement("a");
+  const imgBx = document.createElement("div");
   const img = document.createElement("img");
-  const book_details = document.createElement("div");
+  const content = document.createElement("div");
+  const contentBx = document.createElement("div");
+  const title = document.createElement("h3");
+  const br = document.createElement("br");
+  const span = document.createElement("span");
+  const id = document.createElement("h6");
   const like = document.createElement("div");
-  const name = document.createElement("h3");
-  const publisher = document.createElement("h4");
-  const id = document.createElement("h5");
-  const link = document.createElement("a");
-  return {container, img, book_details, like, name, publisher , link , id};
+  return {card, a, imgBx, img, content, contentBx, title, br, span, id, like};
 };
 
 const beautifycard = (obj, item) => {
-  const {container, img, book_details, like, name, publisher,link,id} = obj;
+  const {card, a, imgBx, img, content, contentBx, title, br, span, id, like} = obj;
   
-  container.className="card"
-
-  book_details.className = "book-details";
-  like.classList.add("like","unliked");
-  name.textContent = `Title - ${item.title}`;
-  if (item.publisher) {
-  publisher.textContent = `Publisher - ${item.publisher}`;
-  } else {
-    publisher.textContent = `Publisher - N/A`;
-  }
+  card.className="card";
+  a.href = item.url;
+  a.setAttribute("target", "_blank");
+  imgBx.className="imgBx";
   img.src = item.cover;
-  id.textContent = `Goodread Id - ${item.book_id}`;
-  link.href = item.url;
-  link.setAttribute("target", "_blank");
-  link.appendChild(img);
-
-  container.appendChild(link);
-  book_details.appendChild(name);
-  book_details.appendChild(publisher);
-  book_details.appendChild(id);
-  container.appendChild(book_details);
-  container.appendChild(like);
-  return container;
+  img.alt = item.title;
+  img.className="book-cover";
+  content.className="content";
+  contentBx.className="contentBx";
+  title.textContent = item.title;
+  span.textContent = item.author;
+  id.className="id";
+  id.setAttribute("hidden", true);
+  id.textContent = item.book_id;
+  like.classList.add("like","unliked");
+  imgBx.appendChild(img);
+  title.appendChild(br);
+  title.appendChild(span);
+  contentBx.appendChild(title);
+  contentBx.appendChild(id);
+  content.appendChild(contentBx);
+  content.appendChild(like);
+  a.appendChild(imgBx);
+  a.appendChild(content);
+  card.appendChild(a);
+  return card;
 }
 
 // Like the book
@@ -125,7 +127,9 @@ const beautifycard = (obj, item) => {
 const Managelikes = () => {
   const likes = document.querySelectorAll(".like");
   likes.forEach((item) => {
+
     item.addEventListener("click", (ev) => {
+      ev.preventDefault();
       ev.target.classList.toggle("unliked");
       ev.target.classList.toggle("liked");
       if (ev.target.classList.contains("liked")) {
@@ -142,7 +146,7 @@ const Managelikes = () => {
 const favlogfunc = (item) => {
   const parent = item.parentElement;
   // const title = parent.querySelector("h3").textContent.split("-")[1].trim();
-  const id = parent.querySelector("h5").textContent.split("-")[1].trim();
+  const id = parent.querySelector(".id").textContent;
   $.ajax({
     type: "POST",
     url : "http://localhost:5000/like",
@@ -160,7 +164,7 @@ const favlogfunc = (item) => {
 const unfavlogfunc = (item) => {
   const parent = item.parentElement;
   // const title = parent.querySelector("h3").textContent.split("-")[1].trim();
-  const id = parent.querySelector("h5").textContent.split("-")[1].trim();
+  const id = parent.querySelector(".id").textContent;
   $.ajax({
     type: "POST",
     url : "http://localhost:5000/unlike",

@@ -1,7 +1,6 @@
 {%extends "layout.html"%}
 
 {% block head %}
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <link rel="stylesheet" href="/static/find.css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" crossorigin="anonymous"></script>
@@ -18,29 +17,23 @@
 
   <div class="result-container">
     <div class="results" id="search-results">
-     <ul>
+
       {%for list in books %}
         {% for book in list%}
-          <li>
-              <article class="card">
-                <a href="{{book.url}}" target="_blank">
-                  <img src="{{book.cover}}" alt="{{book.title}}">
-                </a>
-                <div class="book-details">
-                    <h3>Title - {{book.title}}</h3>
-                    {%if book.publisher %}
-                    <h4> Publisher - {{book.publisher}}</h4>
-                    {% else %}
-                    <h4> Publisher - N/A</h4>
-                    {% endif %}
-                    <h5> Goodread Id - {{book.book_id}}</h5>
-                    <h5> Number of people who like this book as well - {{book.ratings}}</h5>
-                <div class="like liked"></div>
-            </article>
-          </li>
+         <div class="card">
+           <div class="imgBx">
+              <img src="{{book.cover}}" alt="{{book.title}}" class="book-cover">
+           </div>
+           <div class="content">
+           <div class="contentBx">
+             <h3>{{book.title}}<br><span>{{book.author}}</span></h3>
+             <h6 hidden class="id">{{book.book_id}}</h6>
+           </div>
+           <div class="like liked"></div>
+          </div>
+         </div>
         {%endfor%}
       {%endfor%}
-     </ul>
     </div>
   </div>
 

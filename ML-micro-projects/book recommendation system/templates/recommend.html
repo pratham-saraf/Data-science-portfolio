@@ -20,36 +20,29 @@
 
   <div class="result-container">
     <div class="results" id="search-results">
-     <ul>
-       {% if books | length > 0%}
+
+      {% if books | length > 0%}
       {%for data in books %}
         {%for book in data %}
-          <li>
-            
-              <article class="card">
-                <a href="{{book.url}}" target="_blank">
-                  <img src="{{book.cover}}" alt="{{book.title}}">
-                </a>
-                <div class="book-details">
-                    <h3>Title - {{book.title}}</h3>
-                    {%if book.publisher %}
-                    <h4> Publisher - {{book.publisher}}</h4>
-                    {% else %}
-                    <h4> Publisher - N/A</h4>
-                    {% endif %}
-                    <h5> Goodread Id - {{book.book_id}}</h5>
-                    <h5> Number of people who like this book as well - {{book.ratings}}</h5>
-                {% if book.book_id in liked %}
-                <div class="like liked"></div>
-                {% else %}
-                <div class="like unliked"></div>
-                {% endif %}
-            </article>
-          </li>
+        <div class="card">
+          <a href="{{book.url}}" target="_blank">
+          <div class="imgBx">
+             <img src="{{book.cover}}" alt="{{book.title}}" class="book-cover">
+          </div>
+          <div class="content">
+          <div class="contentBx">
+            <h3>{{book.title}}<br><span>{{book.author}}</span></h3>
+            <h6 hidden class="id">{{book.book_id}}</h6>
+          </div>
+
+          <div class="like unliked"></div>
+         </div>
+         </a>
+        </div>
           {%endfor%}
       {%endfor%}
       {% endif %}
-     </ul>
+     
     </div>
   </div>
 

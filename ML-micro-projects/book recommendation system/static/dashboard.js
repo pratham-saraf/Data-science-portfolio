@@ -8,7 +8,6 @@ const Managelikes = () => {
           console.log("liked");
           favlogfunc(ev.target);
         } else {
-          console.log("unliked");
           unfavlogfunc(ev.target);
         }
       });
@@ -17,21 +16,21 @@ const Managelikes = () => {
   
   const favlogfunc = (item) => {
     const parent = item.parentElement;
-    // const title = parent.querySelector("h3").textContent.split("-")[1].trim();
-    const id = parent.querySelector("h5").textContent.split("-")[1].trim();
+    const id = parent.querySelector(".id").textContent;
     $.ajax({
       type: "POST",
       url : "http://localhost:5000/like",
-      // dataType : "json",
       cache: false,
       data : {
         id: id,
       },
       success : function(data) {
         console.log("added to favs");
+
       },
       error : function(data) {
         console.log("error");
+        $("#search-results").load(" #search-results");
       }
     });
     
@@ -39,19 +38,17 @@ const Managelikes = () => {
   
   const unfavlogfunc = (item) => {
     const parent = item.parentElement;
-    // const title = parent.querySelector("h3").textContent.split("-")[1].trim();
-    const id = parent.querySelector("h5").textContent.split("-")[1].trim();
+    const id = parent.querySelector(".id").textContent;
     $.ajax({
       type: "POST",
       url : "http://localhost:5000/unlike",
-      // dataType : "json",
       cache: false,
       data : {
         id: id,
       },
       success : function(data) {
         console.log("removed from favs");
-        location.reload();
+        $("#search-results").load(" #search-results");
       },
       error : function(data) {
         console.log("error");
@@ -59,5 +56,5 @@ const Managelikes = () => {
       }
     });
   }
-  
-Managelikes();
+
+  Managelikes();
