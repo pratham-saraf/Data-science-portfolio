@@ -2,7 +2,7 @@
 # 100 days of ML!
 
 Its a repository to keep track of my progress of 100 days of ML
-as suggested by [in this repository](https://github.com/cybot1711/Learn_Machine_Learning_in_3_Months)
+as suggested [in this repository](https://github.com/cybot1711/Learn_Machine_Learning_in_3_Months)
 
 ### Day 1 - (16-May -2022)
 
