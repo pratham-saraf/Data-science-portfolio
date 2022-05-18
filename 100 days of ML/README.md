@@ -23,3 +23,10 @@ To improve my R skills i began [Data science With R](https://learning.edx.org/co
 Here is my assignment for [Data science with R](https://github.com/pratham-saraf/Data-science-portfolio/tree/main/100%20days%20of%20ML/Day-2/)
 
 completed notes of the playlist [Essence of linear algebra](https://dynalist.io/d/QGH-mc0kByi7OH3Cub6tHxlv#collapse&inline-images&theme=default)
+
+### Day 3 -(18-May-2022)
+I completed [Data science With R](https://learning.edx.org/course/course-v1:HarvardX+PH125.1x+1T2022/home)
+
+Here are my data analysis for [Data science with R](https://github.com/pratham-saraf/Data-science-portfolio/tree/main/100%20days%20of%20ML/Day-3/)
+
+
