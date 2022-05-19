@@ -29,4 +29,8 @@ I completed [Data science With R](https://learning.edx.org/course/course-v1:Harv
 
 Here are my data analysis for [Data science with R](https://github.com/pratham-saraf/Data-science-portfolio/tree/main/100%20days%20of%20ML/Day-3/)
 
+[Link to original certificate](https://www.datacamp.com/statement-of-accomplishment/course/3fd80cd965b5e5e1508bc31d3df56b5e21f3a974?share=true)
+
+![course completion cerificate](https://cdn.discordapp.com/attachments/950059669592883203/976803339658469376/unknown.png)
+
 
