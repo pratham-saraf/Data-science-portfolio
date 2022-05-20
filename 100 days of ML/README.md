@@ -33,4 +33,8 @@ Here are my data analysis for [Data science with R](https://github.com/pratham-s
 
 ![course completion cerificate](https://cdn.discordapp.com/attachments/950059669592883203/976803339658469376/unknown.png)
 
+### Day 4 (19 - May -2022)
 
+I continued  with [Mutivariable Calculus](https://ocw.mit.edu/courses/18-02-multivariable-calculus-fall-2007/video_galleries/video-lectures/) and completed till inverse matrices
+
+Here are the [notes](https://dynalist.io/d/YxdcCfisTd0XYUpZvrzTCcbw#collapse&inline-images&theme=dark)
