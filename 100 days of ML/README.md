@@ -38,3 +38,13 @@ Here are my data analysis for [Data science with R](https://github.com/pratham-s
 I continued  with [Mutivariable Calculus](https://ocw.mit.edu/courses/18-02-multivariable-calculus-fall-2007/video_galleries/video-lectures/) and completed till inverse matrices
 
 Here are the [notes](https://dynalist.io/d/YxdcCfisTd0XYUpZvrzTCcbw#collapse&inline-images&theme=dark)
+
+### Day 5 (20 - May -2022)
+
+I continued  with [Mutivariable Calculus](https://ocw.mit.edu/courses/18-02-multivariable-calculus-fall-2007/video_galleries/video-lectures/) 
+
+Here are the [notes](https://dynalist.io/d/YxdcCfisTd0XYUpZvrzTCcbw#collapse&inline-images&theme=dark)
+
+and began with the [course on machine learning by Andrew NG](https://www.coursera.org/learn/machine-learning/home/welcome)
+
+along with [Micro masters in Data science from MITx on edx](https://micromasters.mit.edu/ds/)
